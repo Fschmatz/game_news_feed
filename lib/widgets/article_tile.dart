@@ -42,51 +42,33 @@ class _ArticleTileState extends State<ArticleTile> {
                     style: const TextStyle(fontSize: 16),
                   ),
                 ),
+                const SizedBox(width: 10,),
+                SizedBox(
+                  width: 55,
+                  child: TextButton(
+                    onPressed: () {
+                      Share.share(widget.feed.link!);
+                    },
+                    child: Icon(
+                      Icons.share_outlined,
+                      size: 18.0,
+                      color: Theme.of(context)
+                          .textTheme
+                          .headline6!
+                          .color!
+                          .withOpacity(0.7),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0,
+                      primary: Theme.of(context).cardTheme.color,
+                      onPrimary: Theme.of(context).colorScheme.secondaryVariant,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                    ),
+                  ),
+                ),
               ],
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 4, 0, 0),
-                    child: Text(
-                      widget.feed.formattedDate,
-                      style: TextStyle(
-                          fontSize: 12.5,
-                          fontWeight: FontWeight.w600,
-                          color:
-                          Theme.of(context).colorScheme.secondaryVariant),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 55,
-                    child: TextButton(
-                      onPressed: () {
-                        Share.share(widget.feed.link!);
-                      },
-                      child: Icon(
-                        Icons.share_outlined,
-                        size: 18.0,
-                        color: Theme.of(context)
-                            .textTheme
-                            .headline6!
-                            .color!
-                            .withOpacity(0.7),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                        primary: Theme.of(context).cardTheme.color,
-                        onPrimary: Theme.of(context).colorScheme.secondaryVariant,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12.0),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
             ),
           ],
         ),

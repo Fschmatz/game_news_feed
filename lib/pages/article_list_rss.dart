@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:game_news_feed/classes/feed.dart';
 import 'package:game_news_feed/widgets/app_bar_sliver.dart';
 import 'package:game_news_feed/widgets/article_tile.dart';
+import 'package:game_news_feed/widgets/dateTile.dart';
 import 'package:http/http.dart' as http;
+import 'package:jiffy/jiffy.dart';
 import 'package:webfeed/webfeed.dart';
 
 class ArticleListRss extends StatefulWidget {
@@ -45,11 +47,19 @@ class _ArticleListRssState extends State<ArticleListRss> {
       },
     );
     var channel = RssFeed.parse(response.body);
+    _articlesList = channel.items!.toList();
+
     setState(() {
-      _articlesList = channel.items!.toList();
+      _articlesList;
       _loading = false;
     });
     client.close();
+  }
+
+  bool checkDate(int index) {
+    return Jiffy(_articlesList[index == 0 ? index : index - 1].pubDate!)
+        .format("dd/MM/yyyy") !=
+        Jiffy(_articlesList[index].pubDate!).format("dd/MM/yyyy");
   }
 
   @override
@@ -83,12 +93,30 @@ class _ArticleListRssState extends State<ArticleListRss> {
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: const EdgeInsets.symmetric(vertical: 7),
-                            child: ArticleTile(
-                              feed: Feed(
-                                link: _articlesList[index].link,
-                                  title: _articlesList[index].title!,
-                                  data: _articlesList[index].pubDate.toString(),
-                              ),
+                            child: Column(
+                              children: [
+                                Visibility(
+                                    visible: index == 0,
+                                    child: DateTile(
+                                      data: _articlesList[index].pubDate!,
+                                      index: index,
+                                    )
+                                ),
+                                Visibility(
+                                    visible: checkDate(index),
+                                    child: DateTile(
+                                       data: _articlesList[index].pubDate!,
+                                      index: index,
+                                    )
+                                ),
+                                ArticleTile(
+                                  feed: Feed(
+                                    link: _articlesList[index].link,
+                                      title: _articlesList[index].title!,
+                                      data: _articlesList[index].pubDate.toString(),
+                                  ),
+                                ),
+                              ],
                             ),
                           );
                         }

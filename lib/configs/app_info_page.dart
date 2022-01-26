@@ -6,7 +6,7 @@ class AppInfoPage extends StatelessWidget {
   const AppInfoPage({Key? key}) : super(key: key);
 
   _launchGithub()  {
-    const url = '';
+    const url = 'https://github.com/Fschmatz/game_news_feed';
     launch(url);
   }
 
@@ -92,7 +92,7 @@ class AppInfoPage extends StatelessWidget {
           const ListTile(
             leading: Icon(Icons.messenger_outline),
             title: Text(
-              "",
+              "Over the centuries, mankind has tried many ways of combating the forces of evil... prayer, fasting, good works and so on. Up until Doom, no one seemed to have thought about the double-barrel shotgun. Eat leaden death, demon...\n\nTerry Pratchett",
               style: TextStyle(fontSize: 16),
             ),
           ),

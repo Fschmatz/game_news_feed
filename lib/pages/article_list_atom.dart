@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:game_news_feed/classes/feed.dart';
 import 'package:game_news_feed/widgets/app_bar_sliver.dart';
 import 'package:game_news_feed/widgets/article_tile.dart';
+import 'package:game_news_feed/widgets/dateTile.dart';
 import 'package:http/http.dart' as http;
+import 'package:jiffy/jiffy.dart';
 import 'package:webfeed/webfeed.dart';
 
 class ArticleListAtom extends StatefulWidget {
@@ -43,11 +45,23 @@ class _ArticleListAtomState extends State<ArticleListAtom> {
       },
     );
     var channel = AtomFeed.parse(response.body);
+    _articlesList = channel.items!.toList();
+
+    //ORGANIZE REDDIT FEED
+    _articlesList.sort((a,b) => a.published!.compareTo(b.published!));
+    List<AtomItem> reversedList = List.from(_articlesList.reversed);
+
     setState(() {
-      _articlesList = channel.items!.toList();
+      _articlesList = reversedList;
       _loading = false;
     });
     client.close();
+  }
+
+  bool checkDate(int index) {
+    return Jiffy(_articlesList[index == 0 ? index : index - 1].published!)
+        .format("dd/MM/yyyy") !=
+        Jiffy(_articlesList[index].published!).format("dd/MM/yyyy");
   }
 
   @override
@@ -76,17 +90,36 @@ class _ArticleListAtomState extends State<ArticleListAtom> {
                           separatorBuilder: (context, index) => const SizedBox(
                                 height: 0,
                               ),
+                          //reverse: true,
                           shrinkWrap: true,
                           itemCount:  _articlesList.length < 20 ?  _articlesList.length : 20,
                           itemBuilder: (context, index) {
                             return Padding(
                               padding: const EdgeInsets.symmetric(vertical: 7),
-                              child: ArticleTile(
-                                feed: Feed(
-                                  link: _articlesList[index].links![0].href!,
-                                  title: _articlesList[index].title!,
-                                  data: _articlesList[index].published!,
-                                ),
+                              child: Column(
+                                children: [
+                                  Visibility(
+                                      visible: index == 0,
+                                      child: DateTile(
+                                        data: DateTime.parse(_articlesList[index].published!),
+                                        index: index,
+                                      )
+                                  ),
+                                  Visibility(
+                                      visible: checkDate(index),
+                                      child: DateTile(
+                                        data: DateTime.parse(_articlesList[index].published!),
+                                        index: index,
+                                      )
+                                  ),
+                                  ArticleTile(
+                                    feed: Feed(
+                                      link: _articlesList[index].links![0].href!,
+                                      title: _articlesList[index].title!,
+                                      data: _articlesList[index].published!,
+                                    ),
+                                  ),
+                                ],
                               ),
                             );
                           }),

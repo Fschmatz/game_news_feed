@@ -16,15 +16,15 @@ class _HomeState extends State<Home> {
   final List<Widget> _articleList = [
     ArticleListRss(
       key: UniqueKey(),
-      feedUrl: "https://www.rockpapershotgun.com/feed",
+      feedUrl: "http://www.pcgamesn.com/mainrss.xml",
     ),
     ArticleListRss(
       key: UniqueKey(),
-      feedUrl: "http://www.pcgamesn.com/mainrss.xml",
+      feedUrl: "https://www.rockpapershotgun.com/feed",
     ),
     ArticleListAtom(
       key: UniqueKey(),
-      feedUrl: "https://www.reddit.com/r/gamernews/.rss",
+     feedUrl: "https://www.reddit.com/r/gamernews/.rss?sort=new",
     ),
   ];
 
@@ -46,14 +46,6 @@ class _HomeState extends State<Home> {
             },
             destinations: const [
               NavigationDestination(
-                icon: Icon(Icons.games_outlined,),
-                selectedIcon: Icon(
-                  Icons.games,
-                  color: Colors.black87,
-                ),
-                label: 'Rock Paper Shotgun',
-              ),
-              NavigationDestination(
                 icon: Icon(Icons.computer_outlined),
                 selectedIcon: Icon(
                   Icons.computer,
@@ -62,7 +54,20 @@ class _HomeState extends State<Home> {
                 label: 'PCGamesN',
               ),
               NavigationDestination(
-                icon: Icon(FeedsIcons.reddit_alien,size: 22,),
+                icon: Icon(
+                  Icons.games_outlined,
+                ),
+                selectedIcon: Icon(
+                  Icons.games,
+                  color: Colors.black87,
+                ),
+                label: 'RPS',
+              ),
+              NavigationDestination(
+                icon: Icon(
+                  FeedsIcons.reddit_alien,
+                  size: 22,
+                ),
                 selectedIcon: Icon(
                   FeedsIcons.reddit_alien,
                   size: 22,
