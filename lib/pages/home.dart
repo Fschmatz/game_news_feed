@@ -20,7 +20,7 @@ class _HomeState extends State<Home> {
     ),
     ArticleListRss(
       key: UniqueKey(),
-      feedUrl: "https://www.rockpapershotgun.com/feed",
+      feedUrl: "https://www.gamedeveloper.com/rss.xml",
     ),
     ArticleListAtom(
       key: UniqueKey(),
@@ -61,7 +61,7 @@ class _HomeState extends State<Home> {
                   Icons.games,
                   color: Colors.black87,
                 ),
-                label: 'RPS',
+                label: 'Game Developer',
               ),
               NavigationDestination(
                 icon: Icon(

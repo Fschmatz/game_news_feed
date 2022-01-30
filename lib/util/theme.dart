@@ -55,7 +55,7 @@ ThemeData dark = ThemeData(
       titleTextStyle: TextStyle(
           fontSize: 20, fontWeight: FontWeight.w600, color: Color(0xFFFFFFFF))),
   cardTheme: const CardTheme(
-    color: Color(0xFF2B2A2E),
+    color: Color(0xFF313034),
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: Color(0xFF161519),

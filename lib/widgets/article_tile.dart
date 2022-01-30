@@ -38,7 +38,8 @@ class _ArticleTileState extends State<ArticleTile> {
               children: [
                 Flexible(
                   child: Text(
-                    widget.feed.title!,
+                    //remover tags html do GameDeveloper
+                    widget.feed.title!.replaceAll(RegExp(r'<[^>]*>|&[^;]+;'), ''),
                     style: const TextStyle(fontSize: 16),
                   ),
                 ),
