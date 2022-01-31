@@ -20,7 +20,7 @@ ThemeData light = ThemeData(
       titleTextStyle: TextStyle(
           fontSize: 20, fontWeight: FontWeight.w600, color: Color(0xFF000000))),
   cardTheme: const CardTheme(
-    color: Color(0xFFF2F1F5),
+    color: Color(0xFFF2F1F3),
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: Color(0xFFEBEAEF),
@@ -29,7 +29,7 @@ ThemeData light = ThemeData(
   bottomAppBarColor: const Color(0xFFEBEAEF),
   navigationBarTheme: NavigationBarThemeData(
       backgroundColor: const Color(0xFFEBEAEF),
-      indicatorColor:  const Color(0xFFe00f7a),
+      indicatorColor:  const Color(0xffe01b80),
       iconTheme: MaterialStateProperty.all(const IconThemeData(
         color: Color(0xFF050505),
       )),
@@ -63,7 +63,7 @@ ThemeData dark = ThemeData(
   bottomAppBarColor: const Color(0xFF161519),
   navigationBarTheme: NavigationBarThemeData(
       backgroundColor: const Color(0xFF161519),
-      indicatorColor: const Color(0xFFf590c3),
+      indicatorColor: const Color(0xfff57cb9),
       iconTheme: MaterialStateProperty.all(const IconThemeData(
         color: Color(0xFFEAEAEA),
       )),

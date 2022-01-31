@@ -14,13 +14,8 @@ class ArticleTile extends StatefulWidget {
 
 class _ArticleTileState extends State<ArticleTile> {
 
-
   _launchBrowser(String url) async {
-    if (await canLaunch(url)) {
       await launch(url);
-    } else {
-      throw 'Error';
-    }
   }
 
   @override

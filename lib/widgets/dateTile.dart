@@ -11,7 +11,7 @@ class DateTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    Color corDataTile = Theme.of(context).colorScheme.primary.withOpacity(0.9);
+    Color corDataTile = Theme.of(context).colorScheme.primary;
 
     return Column(
       children: [
