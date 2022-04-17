@@ -1,10 +1,11 @@
-class Changelog{
+class AppDetails{
 
-  static String appVersion = "1.1.1";
+  static String appVersion = "1.1.2";
   static String appName = "Game News Feed Fschmatz";
+  static String repositoryLink = "https://github.com/Fschmatz/game_news_feed";
 
   static String changelogCurrent = '''  
-1.1.1
+1.1.2
 - UI Changes
 - Changed RPS for GameDeveloper
 - Bug Fix

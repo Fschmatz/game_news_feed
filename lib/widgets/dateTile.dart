@@ -15,7 +15,6 @@ class DateTile extends StatelessWidget {
 
     return Column(
       children: [
-        //Visibility(visible: index != 0, child: const Divider()),
         ListTile(
           leading: Icon(
             Icons.calendar_today_outlined,
@@ -25,7 +24,7 @@ class DateTile extends StatelessWidget {
           title: Text(
             Jiffy(data).format("dd/MM/yyyy"),
             style: TextStyle(
-                fontSize: 14, fontWeight: FontWeight.w700, color: corDataTile),
+                fontSize: 14, fontWeight: FontWeight.w500, color: corDataTile),
           ),
         ),
       ],
