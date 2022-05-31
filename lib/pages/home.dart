@@ -32,52 +32,43 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _articleList[_currentIndex],
-      bottomNavigationBar: Container(
-        color: Theme.of(context).navigationBarTheme.backgroundColor,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: NavigationBar(
-            labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-            selectedIndex: _currentIndex,
-            onDestinationSelected: (index) {
-              setState(() {
-                _currentIndex = index;
-              });
-            },
-            destinations: const [
-              NavigationDestination(
-                icon: Icon(Icons.computer_outlined),
-                selectedIcon: Icon(
-                  Icons.computer,
-                  color: Colors.black87,
-                ),
-                label: 'PCGamesN',
-              ),
-              NavigationDestination(
-                icon: Icon(
-                  Icons.games_outlined,
-                ),
-                selectedIcon: Icon(
-                  Icons.games,
-                  color: Colors.black87,
-                ),
-                label: 'Game Developer',
-              ),
-              NavigationDestination(
-                icon: Icon(
-                  FeedsIcons.reddit_alien,
-                  size: 22,
-                ),
-                selectedIcon: Icon(
-                  FeedsIcons.reddit_alien,
-                  size: 22,
-                  color: Colors.black87,
-                ),
-                label: 'r/gamernews',
-              ),
-            ],
+      bottomNavigationBar: NavigationBar(
+        labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+        selectedIndex: _currentIndex,
+        onDestinationSelected: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(Icons.computer_outlined),
+            selectedIcon: Icon(
+              Icons.computer,
+            ),
+            label: 'PCGamesN',
           ),
-        ),
+          NavigationDestination(
+            icon: Icon(
+              Icons.games_outlined,
+            ),
+            selectedIcon: Icon(
+              Icons.games,
+            ),
+            label: 'Game Developer',
+          ),
+          NavigationDestination(
+            icon: Icon(
+              FeedsIcons.reddit_alien,
+              size: 22,
+            ),
+            selectedIcon: Icon(
+              FeedsIcons.reddit_alien,
+              size: 22,
+            ),
+            label: 'r/gamernews',
+          ),
+        ],
       ),
     );
   }

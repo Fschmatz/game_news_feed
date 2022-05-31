@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 
 ThemeData light = ThemeData(
+  useMaterial3: true,
+  textTheme: const TextTheme(
+    titleMedium: TextStyle(fontWeight: FontWeight.w400),
+  ),
   brightness: Brightness.light,
   primaryColor: const Color(0xFFFFFFFF),
   scaffoldBackgroundColor: const Color(0xFFFFFFFF),
   colorScheme: const ColorScheme.light(
     background: Color(0xFFFFFFFF),
     primary: Color(0xffe2187f),
-    secondary:  Color(0xffe2187f),
+    secondary: Color(0xffe2187f),
   ),
   dialogTheme: const DialogTheme(
     backgroundColor: Color(0xFFFFFFFF),
@@ -16,6 +20,7 @@ ThemeData light = ThemeData(
     ),
   ),
   appBarTheme: const AppBarTheme(
+      surfaceTintColor: Color(0xFFFFFFFF),
       color: Color(0xFFFFFFFF),
       elevation: 0,
       iconTheme: IconThemeData(color: Color(0xFF050505)),
@@ -26,12 +31,12 @@ ThemeData light = ThemeData(
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: Color(0xFFEBEAEC),
-    selectedItemColor:  Color(0xffe2187f),
+    selectedItemColor: Color(0xffe2187f),
   ),
   bottomAppBarColor: const Color(0xFFEBEAEC),
   navigationBarTheme: NavigationBarThemeData(
       backgroundColor: const Color(0xFFEBEAEC),
-      indicatorColor:  const Color(0xffe02585),
+      indicatorColor: const Color(0xffe02585),
       iconTheme: MaterialStateProperty.all(const IconThemeData(
         color: Color(0xFF050505),
       )),
@@ -40,15 +45,20 @@ ThemeData light = ThemeData(
 );
 
 ThemeData dark = ThemeData(
+  useMaterial3: true,
+  textTheme: const TextTheme(
+    titleMedium: TextStyle(fontWeight: FontWeight.w400),
+  ),
   brightness: Brightness.dark,
   primaryColor: const Color(0xFF212022),
   scaffoldBackgroundColor: const Color(0xFF212022),
   colorScheme: const ColorScheme.dark(
-      background: Color(0xFF212022),
-      primary: Color(0xFFf590c3),
-      secondary: Color(0xFFf590c3),
-     ),
+    background: Color(0xFF212022),
+    primary: Color(0xFFf590c3),
+    secondary: Color(0xFFf590c3),
+  ),
   appBarTheme: const AppBarTheme(
+      surfaceTintColor: Color(0xFF212022),
       color: Color(0xFF212022),
       elevation: 0,
       iconTheme: IconThemeData(color: Color(0xFFF5F5F5)),
@@ -69,10 +79,10 @@ ThemeData dark = ThemeData(
   bottomAppBarColor: const Color(0xFF2B2A2C),
   navigationBarTheme: NavigationBarThemeData(
       backgroundColor: const Color(0xFF2B2A2C),
-      indicatorColor: const Color(0xffd97cab),
+      indicatorColor: const Color(0xff853866),
       iconTheme: MaterialStateProperty.all(const IconThemeData(
-        color: Color(0xFFEAEAEA),
+        color: Color(0xFFEDEAEB),
       )),
       labelTextStyle: MaterialStateProperty.all(const TextStyle(
-          color: Color(0xFFEAEAEA), fontWeight: FontWeight.w500))),
+          color: Color(0xFFEDEAEB), fontWeight: FontWeight.w500))),
 );
