@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:game_news_feed/util/feeds_icons.dart';
-
+import '../widgets/app_bar_sliver.dart';
 import 'article_list_atom.dart';
 import 'article_list_rss.dart';
 
@@ -31,7 +31,12 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _articleList[_currentIndex],
+      body: NestedScrollView(
+        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+          return <Widget>[const AppBarSliver()];
+        },
+        body: _articleList[_currentIndex],
+      ),
       bottomNavigationBar: NavigationBar(
         labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
         selectedIndex: _currentIndex,

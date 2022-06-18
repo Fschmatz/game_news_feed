@@ -1,24 +1,24 @@
 class AppDetails{
 
-  static String appVersion = "1.1.3";
+  static String appVersion = "1.1.4";
   static String appName = "Game News Feed Fschmatz";
   static String repositoryLink = "https://github.com/Fschmatz/game_news_feed";
 
   static String changelogCurrent = '''  
-1.1.3
-- UI Changes
+1.1.4
+- UI changes
 - Changed RPS for GameDeveloper
-- Bug Fix
-- Flutter 3 Update
+- Bug fix
+- Flutter 3
 ''';
 
   static String changelogsOld = '''
 1.0.0
-- Technically Usable
-- Flutter Icons
+- Technically usable
+- Flutter icons
 
 0.1.0
-- Project Start 
+- Project start 
 ''';
 
 }

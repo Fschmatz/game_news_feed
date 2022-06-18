@@ -65,15 +65,11 @@ class _ArticleListRssState extends State<ArticleListRss> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: NestedScrollView(
-          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-            return <Widget>[const AppBarSliver()];
-          },
-          body: RefreshIndicator(
+        body:RefreshIndicator(
             onRefresh: getRssData,
             color: Theme.of(context).colorScheme.primary,
             child: AnimatedSwitcher(
-              duration: const Duration(milliseconds: 450),
+              duration: const Duration(milliseconds: 600),
               child: _loading
                   ? Center(
                 child: CircularProgressIndicator(
@@ -83,41 +79,35 @@ class _ArticleListRssState extends State<ArticleListRss> {
                   : ListView(
                   physics: const AlwaysScrollableScrollPhysics(),
                   children: [
-                    ListView.separated(
-                        physics: const NeverScrollableScrollPhysics(),
-                        separatorBuilder: (context, index) => const SizedBox(
-                          height: 0,
-                        ),
+                    ListView.builder(
                         shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
                         itemCount: _articlesList.length < 20 ?  _articlesList.length : 20,
                         itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 7),
-                            child: Column(
-                              children: [
-                                Visibility(
-                                    visible: index == 0,
-                                    child: DateTile(
-                                      data: _articlesList[index].pubDate!,
-                                      index: index,
-                                    )
+                          return Column(
+                            children: [
+                              Visibility(
+                                  visible: index == 0,
+                                  child: DateTile(
+                                    data: _articlesList[index].pubDate!,
+                                    index: index,
+                                  )
+                              ),
+                              Visibility(
+                                  visible: checkDate(index),
+                                  child: DateTile(
+                                     data: _articlesList[index].pubDate!,
+                                    index: index,
+                                  )
+                              ),
+                              ArticleTile(
+                                feed: Feed(
+                                  link: _articlesList[index].link,
+                                    title: _articlesList[index].title!,
+                                    data: _articlesList[index].pubDate.toString(),
                                 ),
-                                Visibility(
-                                    visible: checkDate(index),
-                                    child: DateTile(
-                                       data: _articlesList[index].pubDate!,
-                                      index: index,
-                                    )
-                                ),
-                                ArticleTile(
-                                  feed: Feed(
-                                    link: _articlesList[index].link,
-                                      title: _articlesList[index].title!,
-                                      data: _articlesList[index].pubDate.toString(),
-                                  ),
-                                ),
-                              ],
-                            ),
+                              ),
+                            ],
                           );
                         }
                         ),
@@ -127,6 +117,6 @@ class _ArticleListRssState extends State<ArticleListRss> {
                   ]),
             ),
           ),
-        ));
+        );
   }
 }

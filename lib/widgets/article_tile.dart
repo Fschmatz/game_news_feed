@@ -13,13 +13,18 @@ class ArticleTile extends StatefulWidget {
 }
 
 class _ArticleTileState extends State<ArticleTile> {
+
   _launchBrowser(String url) async {
-    await launch(url);
+    launchUrl(
+      Uri.parse(url),
+      mode: LaunchMode.externalApplication,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      contentPadding: const EdgeInsets.symmetric(vertical: 5,horizontal: 16),
       onTap: () {
         _launchBrowser(widget.feed.link!);
       },
@@ -29,7 +34,6 @@ class _ArticleTileState extends State<ArticleTile> {
       title: Text(
         //remover tags html do GameDeveloper
         widget.feed.title!.replaceAll(RegExp(r'<[^>]*>|&[^;]+;'), ''),
-        style: const TextStyle(fontSize: 16),
       ),
     );
   }
