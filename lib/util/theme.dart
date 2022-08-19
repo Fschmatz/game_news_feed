@@ -23,12 +23,12 @@ ThemeData light = ThemeData(
     color: Color(0xFFF2F1F3),
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    backgroundColor: Color(0xFFEDEAEC),
+    backgroundColor: Color(0xFFEFEAEC),
     selectedItemColor: Color(0xffda3791),
   ),
-  bottomAppBarColor: const Color(0xFFEDEAEC),
+  bottomAppBarColor: const Color(0xFFEFEAEC),
   navigationBarTheme: NavigationBarThemeData(
-      backgroundColor: const Color(0xFFEDEAEC),
+      backgroundColor: const Color(0xFFEFEAEC),
       indicatorColor: const Color(0xfffa5c99),
       iconTheme: MaterialStateProperty.all(const IconThemeData(
         color: Color(0xFF050505),
@@ -43,29 +43,29 @@ ThemeData dark = ThemeData(
     titleMedium: TextStyle(fontWeight: FontWeight.w400),
   ),
   brightness: Brightness.dark,
-  primaryColor: const Color(0xFF212022),
-  scaffoldBackgroundColor: const Color(0xFF212022),
+  primaryColor: const Color(0xFF1F1F1F),
+  scaffoldBackgroundColor: const Color(0xFF1F1F1F),
   colorScheme: const ColorScheme.dark(
-    background: Color(0xFF212022),
-    primary: Color(0xFFffafd5),
-    secondary: Color(0xFFffafd5),
+    background: Color(0xFF1F1F1F),
+    primary: Color(0xFFFFB0CC),
+    secondary: Color(0xFFFFB0CC),
   ),
   appBarTheme: const AppBarTheme(
-      surfaceTintColor: Color(0xFF212022),
-      color: Color(0xFF212022),),
+      surfaceTintColor: Color(0xFF1F1F1F),
+      color: Color(0xFF1F1F1F),),
   cardTheme: const CardTheme(
     color: Color(0xFF313034),
   ),
   dialogTheme: const DialogTheme(
-    backgroundColor: Color(0xFF212022),
+    backgroundColor: Color(0xFF1F1F1F),
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    backgroundColor: Color(0xFF2B2A2C),
+    backgroundColor: Color(0xFF2F2A2E),
   ),
-  bottomAppBarColor: const Color(0xFF2B2A2C),
+  bottomAppBarColor: const Color(0xFF2F2A2E),
   navigationBarTheme: NavigationBarThemeData(
-      backgroundColor: const Color(0xFF2B2A2C),
-      indicatorColor: const Color(0xff782856),
+      backgroundColor: const Color(0xFF2F2A2E),
+      indicatorColor: const Color(0xff573c4c),
       iconTheme: MaterialStateProperty.all(const IconThemeData(
         color: Color(0xFFEDEAEB),
       )),

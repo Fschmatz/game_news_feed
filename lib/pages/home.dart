@@ -16,11 +16,11 @@ class _HomeState extends State<Home> {
   final List<Widget> _articleList = [
     ArticleListRss(
       key: UniqueKey(),
-      feedUrl: "http://www.pcgamesn.com/mainrss.xml",
+      feedUrl: "https://www.gamedeveloper.com/rss.xml",
     ),
     ArticleListRss(
       key: UniqueKey(),
-      feedUrl: "https://www.gamedeveloper.com/rss.xml",
+      feedUrl: "http://www.pcgamesn.com/mainrss.xml",
     ),
     ArticleListAtom(
       key: UniqueKey(),
@@ -47,13 +47,6 @@ class _HomeState extends State<Home> {
         },
         destinations: const [
           NavigationDestination(
-            icon: Icon(Icons.computer_outlined),
-            selectedIcon: Icon(
-              Icons.computer,
-            ),
-            label: 'PCGamesN',
-          ),
-          NavigationDestination(
             icon: Icon(
               Icons.games_outlined,
             ),
@@ -61,6 +54,13 @@ class _HomeState extends State<Home> {
               Icons.games,
             ),
             label: 'Game Developer',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.computer_outlined),
+            selectedIcon: Icon(
+              Icons.computer,
+            ),
+            label: 'PCGamesN',
           ),
           NavigationDestination(
             icon: Icon(
